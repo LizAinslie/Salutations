@@ -25,7 +25,7 @@ client.on('message', msg => {
         case 'message':
             switch(args.shift()) {
                 case 'set':
-                    if(!msg.member.hasPermission('MANAGE_GUILD') || msg.author.id !== config.ownerID) return msg.channel.send('You don\'t have the required permissions! You need `MANAGE GUILD`!');
+                    if(!msg.member.hasPermission('MANAGE_MESSAGES') || msg.author.id !== config.ownerID) return msg.channel.send('You don\'t have the required permissions! You need `MANAGE_MESSAGES`!');
                     switch(args.shift()) {
                         case 'text':
                             r.table('guildSettings').get(msg.guild.id).run().then(settings => {
@@ -75,7 +75,7 @@ client.on('message', msg => {
                     }
                     break;
                 case 'enable':
-                    if(!msg.member.hasPermission('MANAGE_GUILD') || msg.author.id !== config.ownerID) return msg.channel.send('You don\'t have the required permissions! You need `MANAGE GUILD`!');
+                    if(!msg.member.hasPermission('MANAGE_MESSAGES') || msg.author.id !== config.ownerID) return msg.channel.send('You don\'t have the required permissions! You need `MANAGE_MESSAGES`!');
                     r.table('guildSettings').get(msg.guild.id).run().then(settings => {
                         if (settings) {
                             if (!settings.channel || !settings.welcomeText) return msg.channel.send('You need to set the `Channel` and `WelcomeMessage` settings first!');
@@ -91,7 +91,7 @@ client.on('message', msg => {
                     });
                     break;
                 case 'disable':
-                    if(!msg.member.hasPermission('MANAGE_GUILD') || msg.author.id !== config.ownerID) return msg.channel.send('You don\'t have the required permissions! You need `MANAGE GUILD`!');
+                    if(!msg.member.hasPermission('MANAGE_MESSAGES') || msg.author.id !== config.ownerID) return msg.channel.send('You don\'t have the required permissions! You need `MANAGE_MESSAGES`!');
                     r.table('guildSettings').get(msg.guild.id).run().then(settings => {
                         if (settings) {
                             if (!settings.channel || !settings.welcomeText) return msg.channel.send('You need to set the `Channel` and `WelcomeMessage` settings first!');
