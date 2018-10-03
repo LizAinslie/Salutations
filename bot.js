@@ -106,30 +106,31 @@ client.on('message', msg => {
                         msg.channel.send('Set `Enabled` to **False** for your guild.');
                     });
                     break;
-                case 'help':
-                case 'cmds':
-                case 'commands':
-                    const embed = new Discord.RichEmbed()
-                    .setTitle('Command List')
-                    .setColor('RANDOM')
-                    .addField('Set', `**Usage:**
-\`salutations set <channel|text> <value>\`
+            }
+            break
+        case 'help':
+            case 'cmds':
+            case 'commands':
+                const embed = new Discord.RichEmbed()
+                .setTitle('Command List')
+                .setColor('RANDOM')
+                .addField('Message Set', `**Usage:**
+\`salut message set <channel|text> <value>\`
 
 **Description:**
 Sets the bot up to function on your server.`)
-                    .addField('Enable', `**Usage:**
-\`salutations enable\`
+                .addField('Message Enable', `**Usage:**
+\`salut message enable\`
 
 **Description:**
 Enables the bot's functionality on your server`)
-                    .addField('Disable', `**Usage:**
-\`salutations disable\`
+                .addField('Message Disable', `**Usage:**
+\`salut message disable\`
 
 **Description:**
 Disables the bot on your server.`)
-                    .addField('Ping', `If you're looking at this, you're insane. You know how it works!`);
-                    msg.channel.send(embed);
-            }
+                .addField('Ping', `If you're looking at this, you're insane. You know how it works!`);
+                msg.channel.send(embed);
     }
 });
 
