@@ -142,7 +142,7 @@ client.on('guildMemberAdd', (member) => {
         const embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`Members: ${member.guild.size}`)
+        .setFooter(`Members: ${member.guild.memberCount}`)
         .setThumbnail(member.user.displayAvatarURL)
         .setDescription(`<@${member.user.id}>
 **Welcome to ${member.guild.name}!**
