@@ -136,7 +136,7 @@ Disables the bot on your server.`)
 
 client.on('guildMemberAdd', (member) => {
     r.table('guildSettings').get(member.guild.id).run().then(settings => {
-        if (!settings || !settings.enabled) return;
+        if (!settings || !settings.enabled || !settings.welcomeText || !settings.channel) return;
         const welcomeChannel = member.guild.channels.get(settings.channel);
         
         const embed = new Discord.RichEmbed()
