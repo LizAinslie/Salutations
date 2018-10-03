@@ -9,7 +9,7 @@ const r = rethinkdb(config.rethinkdb);
 
 client.on('message', msg => {
     if (msg.author.bot) return;
-    const prefixes = ['salut', `<@${client.user.id}>`];
+    const prefixes = ['salut ', `<@${client.user.id}>`];
     let prefix = false;
     for (const thisPrefix of prefixes) {
         if (msg.content.toLowerCase().startsWith(thisPrefix)) prefix = thisPrefix;
@@ -134,18 +134,18 @@ Disables the bot on your server.`)
     }
 });
 
-client.on('guildMemberAdd', (member, guild) => {
-    r.table('guildSettings').get(guild.id).run().then(settings => {
+client.on('guildMemberAdd', (member) => {
+    r.table('guildSettings').get(member.guild.id).run().then(settings => {
         if (!settings || !settings.enabled) return;
-        const welcomeChannel = guild.channels.get(settings.channel);
+        const welcomeChannel = member.guild.channels.get(settings.channel);
         
         const embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setTimestamp(new Date())
-        .setFooter(`Members: ${guild.size}`)
+        .setFooter(`Members: ${member.guild.size}`)
         .setThumbnail(member.user.displayAvatarURL)
         .setDescription(`<@${member.user.id}>
-**Welcome to ${guild.name}!**
+**Welcome to ${member.guild.name}!**
 ${settings.welcomeText}`);
         
         welcomeChannel.send(embed);
