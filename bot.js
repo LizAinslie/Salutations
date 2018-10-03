@@ -46,6 +46,7 @@ client.on('message', msg => {
                                     });
                                 }
                             });
+                            msg.channel.send(`Set welcome message to \`${args.join(' ')}\``);
                             break;
                         case 'channel':
                             resolveChannel(client, args.join(' '), msg.guild).then(channel => {
@@ -67,6 +68,7 @@ client.on('message', msg => {
                                         });
                                     }
                                 });
+                                msg.channel.send(`Set welcome message to <#${channel.id}>`);
                             });
                             break;
                         default:
