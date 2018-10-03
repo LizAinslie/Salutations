@@ -1,0 +1,12 @@
+{
+  "name": "salutations",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://gitlab.com/railinator4903/salutations.git",
+  "author": "Landon Gravat <railinator4903@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}

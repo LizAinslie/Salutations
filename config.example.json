@@ -1,0 +1,11 @@
+{
+    "token": "",
+    "ownerID": "",
+    "rethinkdb": {
+        "silent": true,
+        "discovery": true,
+        "host": "localhost",
+        "db": "salutations"
+        "port": 28016
+    }
+}
